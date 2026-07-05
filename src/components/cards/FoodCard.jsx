@@ -1,6 +1,7 @@
+import Link from "next/link";
 import React from "react";
 
-const FoodCard = ({ food }) => {
+const FoodCard = ({ food ,id}) => {
   return (
     <div className="max-w-sm rounded-xl overflow-hidden shadow-lg border bg-white hover:shadow-2xl transition duration-300">
       {/* Food Image */}
@@ -27,13 +28,13 @@ const FoodCard = ({ food }) => {
 
         {/* Buttons */}
         <div className="flex gap-3 mt-5">
-          <button className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+          <Link href={`/foods/${food.id}`} className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
             View Details
-          </button>
+          </Link>
 
-          <button className="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
+          <Link href="/cart" className="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
             Add to Cart
-          </button>
+          </Link>
         </div>
       </div>
     </div>
