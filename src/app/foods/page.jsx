@@ -1,5 +1,6 @@
 import FoodCard from "@/components/cards/FoodCard";
 import React from "react";
+import CartItems from "./CartItems";
 
 const getFoods = async () => {
     const res = await fetch(
@@ -15,12 +16,16 @@ const Foods = async () => {
     const foods = await getFoods();
 
     return (
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto  flex gap-5">
            <h2 className="text-white text-2xl">Total Foods: <span className="text-indigo-800">{foods.length}</span> Found</h2>
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+           <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
             {
-                foods.map(food => <FoodCard key={food._id} food={food} />)
+                foods.map(food => <FoodCard key={food.id} food={food} />)
             }
+           </div>
+           <div className="w-[250px] border-2 rounded-2xl p-4">
+                <div className="text-2xl font-bold ">Cart Items:</div> <hr />
+                <CartItems  />
            </div>
         </div>
         
