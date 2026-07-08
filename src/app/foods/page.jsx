@@ -14,6 +14,11 @@ const getFoods = async (search) => {
     return data.foods || [];
 };
 
+export const metadata = {
+  title: "All FooDs",
+  description: "Welcome to our Food Corner!",
+};
+
 const Foods = async ({searchParams}) => {
     const {search =" "} = await searchParams
     
